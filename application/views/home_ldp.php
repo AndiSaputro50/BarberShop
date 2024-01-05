@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Landing Page</title>
+    <title>PRO Barbershop</title>
+    <link rel="stylesheet" href="output.css">
+
     <style>
         /* Basic styling - you can add your own styles here */
         body {
@@ -15,7 +17,7 @@
             color: #333;
             height: 100vh;
             overflow: hidden;
-            background-image: url('https://id-test-11.slatic.net/p/519f1fafe4cbad0729d9a565f7ca1da7.jpg');
+            background-image: url('https://www.imural.id/blog/wp-content/uploads/2017/07/mural-barbershop-tema-barberman.jpg');
             background-size: cover;
             background-position: center center;
             box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -110,7 +112,6 @@
     <div class="container">
         <h1>Welcome to Barbershop</h1>
         <p>This is where you can introduce your product, service, or message.</p>
-        <a href="#" class="cta-button">Get Started</a>
         <div class="social-icons">
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-tiktok"></i></a>
