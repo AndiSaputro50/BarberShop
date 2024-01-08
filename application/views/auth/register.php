@@ -4,314 +4,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRO Barbershop</title>
-    <link rel="stylesheet" href="output.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-
+    <title>Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <style>
-        * {
-            margin: 0px;
-            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        }
-
-        .form-group {
-            position: relative;
-        }
-
-        /* .password-toggle-register {
-            position: absolute;
-            top: 70%;
-            transform: translateY(-50%);
-            right: 8rem;
-            cursor: pointer;
-        } */
-
-        .LoginPageContainer {
-            height: 100vh;
-            overflow: auto;
-        }
-
-        .showPassword {
-            margin-left: 19.5rem;
-        }
-
-        .LoginPageInnerContainer {
-            display: flex;
-            min-height: 100%;
-        }
-
-        .LoginPageInnerContainer .ImageContianer {
-            width: 40%;
-            background-color: #45474B;
-            min-height: 100%;
-            padding: 5%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .LoginPageInnerContainer .ImageContianer .GroupImage {
-            width: 70%;
-            display: block;
-        }
-
-        .LoginPageInnerContainer .LoginFormContainer {
-            flex-grow: 2;
-            background-color: white;
-            min-height: 100%;
-            padding: 5%;
-            background: url(https://i.imgur.com/BKyjjFa.png) no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-
-        .LoginPageInnerContainer .LoginFormContainer .LogoContainer .logo {
-            height: 60px;
-            margin-bottom: 30px;
-        }
-
-        .LoginPageInnerContainer .LoginFormContainer .header {
-            font-size: 25px;
-            font-weight: 500;
-        }
-
-        .LoginPageInnerContainer .LoginFormContainer .subHeader {
-            color: #9aa4ad;
-            margin-top: 5px;
-            margin-bottom: 40px;
-        }
-
-        .subArteris {
-            color: red;
-            font-size: 14px;
-            margin-top: 5px;
-            margin-bottom: 40px;
-        }
-
-        .LoginPageInnerContainer .LoginFormContainer .inputContainer {
-            color: #3f3f45;
-            margin: 20px 0px;
-        }
-
-        .LoginPageInnerContainer .LoginFormContainer .inputContainer .label {
-            display: flex;
-            width: 100%;
-            justify-content: flex-start;
-            align-items: center;
-            margin-right: 7px;
-            margin-bottom: 10px;
-        }
-
-        .LoginPageInnerContainer .LoginFormContainer .inputContainer .label .labelIcon {
-            width: 20px;
-            margin-right: 10px;
-            display: block;
-        }
-
-        .LoginPageInnerContainer .LoginFormContainer .inputContainer .input {
-            display: block;
-            width: calc(100% - 20px);
-            font-size: 15px;
-            padding: 10px;
-            border: 1px solid #d6d7db;
-            border-radius: 5px;
-            margin-top: 5px;
-            outline: 0px !important;
-        }
-
-        .LoginPageInnerContainer .LoginFormContainer .OptionsContainer {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .LoginFormContainer {
-            display: flex;
-            align-items: center;
-        }
-
-        .LoginFormInnerContainer {
-            max-width: 500px;
-        }
-
-        .LoginPageInnerContainer .LoginFormContainer .checkbox {
-            width: 15px;
-            height: 15px;
-            margin: 0px;
-            display: block;
-            border: 1px solid #d6d7db;
-        }
-
-        .LoginPageInnerContainer .LoginFormContainer .checkboxContainer {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-        }
-
-        .LoginPageInnerContainer .LoginFormContainer .checkboxContainer label {
-            display: block;
-            padding: 0px 5px;
-            margin-left: 5px;
-            color: #9aa4ad;
-        }
-
-        .LoginPageInnerContainer .LoginFormContainer .ForgotPasswordLink {
-            color: #e7483b;
-            text-decoration: none;
-        }
-
-        .LoginFormContainer .LoginFormInnerContainer .LoginButton {
-            margin-top: 30px;
-            display: block;
-            width: 100%;
-            padding: 14px;
-            border-radius: 20px;
-            font-weight: bold;
-            color: white;
-            background-color: #45474B;
-            border: 0px;
-            outline: 0px;
-            cursor: pointer;
-        }
-
-        .LoginFormContainer .LoginFormInnerContainer .LoginButton:active {
-            background-color: #0B2447;
-        }
-
-
-        @media only screen and (max-width: 1200px) {
-            .LoginPageInnerContainer .ImageContianer {
-                width: 50%;
-            }
-        }
-
-        @media only screen and (max-width: 800px) {
-            .LoginPageInnerContainer .ImageContianer {
+        @media (max-width: 640px) {
+            .responsive-image {
                 display: none;
             }
-
-            .form-group {
-                position: relative;
-            }
-
-            .password-toggle-register {
-                position: absolute;
-                top: 37rem;
-                transform: translateY(-50%);
-                right: 1.8rem;
-                cursor: pointer;
-            }
-
-            .LoginFormContainer {
-                justify-content: center;
-            }
-        }
-
-
-        .LoginPageContainer::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        .LoginPageContainer::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        .ImageContianer .LoginPageContainer::-webkit-scrollbar-thumb {
-            background: #2e1f7a;
-        }
-
-        .LoginPageContainer::-webkit-scrollbar-thumb:hover {
-            background: #4520ff;
-        }
-
-        .inputContainer {
-            position: relative;
-        }
-
-        .password-input-container {
-            position: relative;
-        }
-
-        .password-toggle-login {
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #555;
-            /* Adjust the color as needed */
-        }
-
-        .header-text {
-            font-weight: bold;
-            font-size: 15px;
         }
     </style>
-
-
 </head>
 
 <body>
-    <div class="LoginPageContainer">
-        <div class="LoginPageInnerContainer">
-            <div class="ImageContianer">
-                <img src="#" class="GroupImage">
+    <div class="flex justify-center items-center h-screen">
+        <div class="max-w-2xl w-full md:flex rounded-lg overflow-hidden bg-white-100 shadow-lg">
+            <div class="w-full md:w-1/2 p-8 hidden md:flex items-center justify-center responsive-image">
+                <img src="https://img.freepik.com/premium-vector/barber-styling-client-beard-salon-barbershop_82574-10528.jpg?w=740" alt="Sample image" class="object-cover w-full h-auto">
             </div>
-            <div class="LoginFormContainer">
-                <div class="LoginFormInnerContainer">
-
-                    <header class="header">Register Barbershop PRO</header>
-                    <header class="subHeader">Welcome to Website <b> Barbershop PRO</b> Please complete your data
-                    </header>
-
-                    <form action="<?php echo base_url('auth/aksi_register')?>" method="post">
-                        <div class="inputContainer">
-                            <label class="label header-text" for="emailAddress"><img src="https://cdn2.iconfinder.com/data/icons/e-commerce-line-4-1/1024/user4-512.png" class="labelIcon"><span>Username
-                                </span></label>
-                            <input autocomplete="off" required type="text" name="username" class="input" id="username" placeholder="Enter your Username">
-                        </div>
-                        <div class="inputContainer">
-                            <label class="label header-text" for="emailAddress"><img src="https://i.imgur.com/Hn13wvm.png" class="labelIcon"><span>Email
-                                </span></label>
-                            <input autocomplete="off" type="email" name="email" class="input" id="emailAddress" placeholder="Enter your Email Address">
-                        </div>
-                        <div class="inputContainer">
-                            <label class="label header-text" for="emailAddress">
-                                <img src="https://i.imgur.com/g5SvdfG.png" class="labelIcon"><span>Password</span></label>
-                            <div class="password-input-container">
-                                <input type="password" name="password" class="input" id="password" placeholder="Enter your Password">
-                                <!-- <i class="password-toggle-login fa fa-eye-slash" onclick="togglePassword()"></i> -->
-                            </div>
-                        </div>
-
-                        <p class="subArteris">*Gunakan kombinasi minimal 8 karakter dengan huruf dan angka</p>
-                        <button name="submit" type="submit" class="LoginButton">Register</button>
-
-                    </form>
+            <div class="w-full md:w-1/2 p-8">
+                <div class="text-center md:text-left">
+                    <h2 class="text-3xl font-semibold">PRO Barbershop</h2>
                 </div>
+                <div class="my-5 border-b-2 border-gray-300"></div>
+                <form action="<?php echo base_url('auth/aksi_register') ?>" enctype="multipart/form-data" method="post">
+                    <div>
+                        <label class="sr-only">Email</label>
+                        <div class="relative mb-6">
+                            <input type="email" name="email" class="w-full rounded-lg border p-4 pr-12 text-sm shadow-sm" placeholder="Enter Your Email" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="username" class="sr-only">Username</label>
+                        <div class="relative mb-2">
+                            <input type="text" id="username" name="username" class="w-full rounded-lg border p-4 pr-12 text-sm shadow-sm mb-4" placeholder="Username" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="password" class="sr-only">Password</label>
+                        <div class="relative">
+                            <input type="password" name="password" class="w-full rounded-lg border p-4 pr-12 text-sm shadow-sm" placeholder="Enter Your Password" required>
+                            <span class="absolute inset-y-0 right-0 grid place-content-center px-4 cursor-pointer">
+                                <i class="fa-solid fa-eye-slash"></i>
+                            </span>
+                        </div>
+                        <p class="text-sm text-rose-700 font-semibold">*Password must be at least 8 characters</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <button class="mt-4 bg-blue-600 hover:bg-blue-800 px-4 py-2 text-white uppercase rounded text-xs tracking-wider" type="submit">Register</button>
+                    </div>
+                    <p class="text-sm mt-2">Do You Have Account? <span>Please <a class="text-blue-600 font-semibold" href="<?php echo base_url() ?>">Login</a></span></p>
+                </form>
             </div>
         </div>
     </div>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const passwordInput = document.querySelector('input[type="password"]');
+            const togglePasswordButton = document.querySelector('.fa-eye-slash');
 
-<script>
-    function togglePassword() {
-        var passwordInput = document.getElementById("password");
-        var passwordToggle = document.querySelector(".password-toggle-login");
-
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            passwordToggle.classList.remove("fa-eye-slash");
-            passwordToggle.classList.add("fa-eye");
-        } else {
-            passwordInput.type = "password";
-            passwordToggle.classList.remove("fa-eye");
-            passwordToggle.classList.add("fa-eye-slash");
+            togglePasswordButton.addEventListener('click', function() {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    togglePasswordButton.className = 'fa-regular fa-eye';
+                } else {
+                    passwordInput.type = 'password';
+                    togglePasswordButton.className = 'fa-regular fa-eye-slash';
+                }
+            });
+        });
+        var error = "<?php echo $error; ?>";
+        var error_email = "<?php echo $error_email; ?>";
+        if (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Kesalahan!!',
+                text: "Password harus memiliki minimal 8 karakter!!",
+                showConfirmButton: false,
+                timer: 3000
+            });
         }
-    }
-</script>
+
+        if (error_email) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Kesalahan!!',
+                text: "Email sudah digunakan tolong gunakan email yang lain",
+                showConfirmButton: false,
+                timer: 3000
+            });
+        }
+    </script>
+</body>
 
 </html>

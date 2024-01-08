@@ -94,7 +94,7 @@ class Auth extends CI_Controller
             $data = [
                 'email' => $this->input->post('email'),
                 'username' => $this->input->post('username'),
-                'role' => 'supervisor',
+                'role' => 'customer',
                 'password' => md5($this->input->post('password')),
             ];
             $this->m_model->tambah_data('user', $data);
@@ -108,4 +108,8 @@ class Auth extends CI_Controller
         redirect(base_url('auth/register'));
     }
 }
+    public function coba()
+    {
+        $this->load->view('auth/coba');
+    }
 }
