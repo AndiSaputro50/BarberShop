@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRO Barbershop</title>
-    <link rel="stylesheet" href="output.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
     <style>
@@ -18,11 +17,11 @@
             color: #333;
             height: 100vh;
             overflow: hidden;
-            background-image: url('https://img.freepik.com/premium-photo/vintage-barber-chair-modern-tiled-room_926271-2912.jpg?w=826');
+            background-image: url('https://img.freepik.com/free-photo/old-fashioned-professional-tattooed-hairdresser-does-haircut-african-american-client-using-trimmer-comb-isolated-dark-textured-background_613910-6437.jpg?w=740&t=st=1704784168~exp=1704784768~hmac=43af658e70da79802a7e80655b5c9988d72f98987c77c8d5c452493ea7cd7224');
             background-size: 100% 100%;
             /* Memastikan gambar meliputi seluruh area */
             background-position: center center;
-            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 0 0 0 500px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.3);
             /* Shadow on background */
         }
 
@@ -31,8 +30,8 @@
             top: 0;
             /* Mengubah posisi navbar ke bagian atas */
             width: 100%;
-            background-color: #000;
-            padding: 15px 0;
+            background-color: #393E46;
+            padding: 20px 0;
             text-align: center;
         }
 
@@ -106,8 +105,6 @@
         <a href="#">About</a>
         <a href="#">Services</a>
         <a href="#">Contact</a>
-        <img src="<?php echo base_url('image/indo.png')?>" alt="Indonesia Flag">
-        <img src="<?php echo base_url('image/uk.png')?>" alt="UK Flag">
     </div>
 
 </body>

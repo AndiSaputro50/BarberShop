@@ -75,41 +75,46 @@ class Auth extends CI_Controller
     }
 
     public function aksi_register()
-{
-    $email = $this->input->post('email', true);
-    $data = ['email' => $email];
-    $password = $this->input->post('password');
-    $username = $this->input->post('username');
-    $query = $this->m_model->getwhere('user', $data);
-    $result = $query->row_array();
+    {
+        $email = $this->input->post('email', true);
+        $data = ['email' => $email];
+        $password = $this->input->post('password');
+        $username = $this->input->post('username');
+        $query = $this->m_model->getwhere('user', $data);
+        $result = $query->row_array();
 
-    if (empty($result)) {
-        $this->form_validation->set_rules('email', 'Email', 'trim|required|regex_match[/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/]');
-        $this->form_validation->set_rules('password', 'Password', 'required|regex_match[/^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,}$/]');
-        $this->form_validation->set_rules('username', 'Username', 'required'); // Validasi untuk username
+        if (empty($result)) {
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|regex_match[/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/]');
+            $this->form_validation->set_rules('password', 'Password', 'required|regex_match[/^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,}$/]');
+            $this->form_validation->set_rules('username', 'Username', 'required'); // Validasi untuk username
 
-        if ($this->form_validation->run() === FALSE) {
-            redirect(base_url('auth/register'));
+            if ($this->form_validation->run() === FALSE) {
+                redirect(base_url('auth/register'));
+            } else {
+                $data = [
+                    'email' => $this->input->post('email'),
+                    'username' => $this->input->post('username'),
+                    'role' => 'customer',
+                    'password' => md5($this->input->post('password')),
+                ];
+                $this->m_model->tambah_data('user', $data);
+
+                // Tampilkan SweetAlert setelah registrasi berhasil
+                $this->session->set_flashdata('success', 'Berhasil melakukan registrasi');
+                redirect(base_url());
+            }
         } else {
-            $data = [
-                'email' => $this->input->post('email'),
-                'username' => $this->input->post('username'),
-                'role' => 'customer',
-                'password' => md5($this->input->post('password')),
-            ];
-            $this->m_model->tambah_data('user', $data);
-
-            // Tampilkan SweetAlert setelah registrasi berhasil
-            $this->session->set_flashdata('success', 'Berhasil melakukan registrasi');
-            redirect(base_url());
+            $this->session->set_flashdata('error_email', 'Email sudah terdaftar');
+            redirect(base_url('auth/register'));
         }
-    } else {
-        $this->session->set_flashdata('error_email', 'Email sudah terdaftar');
-        redirect(base_url('auth/register'));
     }
-}
     public function coba()
     {
         $this->load->view('auth/coba');
+    }
+
+    public function coba_2()
+    {
+        $this->load->view('auth/coba_2');
     }
 }
