@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="sweetalert2.min.css">
@@ -46,7 +46,7 @@
                 </form>
             </div>
             <div class="w-full md:w-1/2 hidden md:block md:order-1">
-                <img src="https://img.freepik.com/free-vector/barbershop-waiting-clients-concept-illustration_114360-13991.jpg?w=740&t=st=1704700636~exp=1704701236~hmac=09bae152c8a8737337a706ecd0318caad7d8f09670bad9fbfc745e975a1c68f1" alt="Sample image">
+                <img src="https://img.freepik.com/free-vector/barbershop-waiting-clients-concept-illustration_114360-13991.jpg?w=740&t=st=1704789748~exp=1704790348~hmac=a1c53a0e4bf29054c84c86e0f94fc13c7a38053203d5d641d12e7d0bb200f0c7" alt="Sample image">
             </div>
         </div>
     </div>

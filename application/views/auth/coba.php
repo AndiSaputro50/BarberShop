@@ -3,127 +3,83 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sidebar Admin</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-  <style>
-    /* Optional: You can add your custom styles here */
-    /* Let the main content scroll */
-    main {
-      overflow-y: auto;
-      /* Hanya konten yang akan memiliki scrollbar jika melebihi ukuran layar */
-      height: calc(100vh - 4rem);
-      /* Sesuaikan dengan tinggi navbar */
-    }
-
-    /* Untuk mengatur tinggi main dan menghindari sidebar ikut terkena scroll */
-    body {
-      overflow: hidden;
-      /* Menghindari scroll pada body */
-    }
-
-    /* Jika Anda ingin mengatur tinggi sidebar tetap statis */
-    #sidebar {
-      height: calc(100vh - 4rem);
-      /* Sesuaikan dengan tinggi navbar */
-      overflow-y: auto;
-      /* Jika konten di sidebar melebihi ukuran layar */
-    }
-  </style>
+  <meta name="viewport" content="width=\, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Flowbite CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+  <!-- Flowbite JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 </head>
 
-<body class="bg-gray-100">
-  <!-- Navbar -->
-  <nav class="bg-gray-600 text-white p-6">
-    <div class="flex justify-between items-center">
-      <div class="flex items-center">
-        <button id="sidebarToggle" class="text-white focus:outline-none md:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-          </svg>
-        </button>
+<body>
+  <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-900 dark:bg-blue-800 dark:border-blue-700">
+    <div class="px-3 py-3 lg:px-5 lg:pl-3">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center justify-start rtl:justify-end">
+          <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+            <span class="sr-only">Open sidebar</span>
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+            </svg>
+          </button>
+          <a href="#" class="flex ms-2 md:me-24">
+            <img src="" class="h-8 me-3" alt="" />
+            <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"></span>
+          </a>
+        </div>
+        <div class="flex items-center">
+          <div class="flex items-center ms-3">
+            <div>
+              <button type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                <span class="sr-only">Open user menu</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- Add your navbar links or content here -->
+    </div>
     </div>
   </nav>
 
-  <!-- Sidebar and Content -->
-  <div class="flex h-screen">
-    <!-- Sidebar -->
-    <aside id="sidebar" class="w-64 bg-gray-600 text-gray-100 hidden md:block">
-      <!-- Sidebar content -->
-      <div class="p-4">
-        <!-- Sidebar header -->
-        <!-- Remove the text for Sidebar -->
-        <!-- Sidebar links -->
-        <ul>
-          <li class="py-2">
-            <a href="#" class="block hover:text-white">Dashboard</a>
-          </li>
-          <li class="py-2">
-            <a href="#" class="block hover:text-white">LogOut</a>
-          </li>
-          <li class="py-2">
-            <a href="#" class="block hover:text-white">Akun</a>
-          </li>
-          <!-- Add more links as needed -->
-        </ul>
-      </div>
-    </aside>
-
-    <!-- Content -->
-    <main class="flex-1 p-6">
-      <!-- Dashboard content -->
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Sample cards for dashboard -->
-        <div class="bg-white p-12 rounded shadow-lg flex items-center">
-          <span class="text-4xl text-gray-500 mr-4">
-            <i class="fas fa-chart-bar"></i>
-          </span>
-          <div>
-            <h2 class="text-lg font-semibold mb-2">Card 1</h2>
-            <p>Card content goes here...</p>
-          </div>
-        </div>
-        <div class="bg-white p-12 rounded shadow-lg flex items-center">
-          <span class="text-4xl text-gray-500 mr-4">
-            <i class="fas fa-chart-bar"></i>
-          </span>
-          <div>
-            <h2 class="text-lg font-semibold mb-2">Card 1</h2>
-            <p>Card content goes here...</p>
-          </div>
-        </div>
-        <div class="bg-white p-12 rounded shadow-lg flex items-center">
-          <span class="text-4xl text-gray-500 mr-4">
-            <i class="fas fa-calendar-alt"></i>
-          </span>
-          <div>
-            <h2 class="text-lg font-semibold mb-2">Card 2</h2>
-            <p>Card content goes here...</p>
-          </div>
-        </div>
-        <div class="bg-white p-12 rounded shadow-lg flex items-center">
-          <span class="text-4xl text-gray-500 mr-4">
-            <i class="fas fa-user"></i>
-          </span>
-          <div>
-            <h2 class="text-lg font-semibold mb-2">Card 3</h2>
-            <p>Card content goes here...</p>
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <script>
-    document.getElementById('sidebarToggle').addEventListener('click', function() {
-      document.getElementById('sidebar').classList.toggle('hidden');
-    });
-  </script>
+  <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-900 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
+    <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+      <ul class="space-y-2 font-medium">
+        <li>
+          <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg dark:text-white hover:bg-blue-200 dark:hover:bg-blue-700 group">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V8M1 10l9-9 9 9" />
+            </svg>
+            <span class="ms-3">Dashboard</span>
+          </a>
+          <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg dark:text-white hover:bg-blue-200 dark:hover:bg-blue-700 group">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.333 6.764a3 3 0 1 1 3.141-5.023M2.5 16H1v-2a4 4 0 0 1 4-4m7.379-8.121a3 3 0 1 1 2.976 5M15 10a4 4 0 0 1 4 4v2h-1.761M13 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-4 6h2a4 4 0 0 1 4 4v2H5v-2a4 4 0 0 1 4-4Z" />
+            </svg>
+            <span class="ms-3">Approve</span>
+          </a>
+          <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg dark:text-white hover:bg-blue-200 dark:hover:bg-blue-700 group">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M10 6v4l3.276 3.276M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            <span class="ms-3">History Approve</span>
+          </a>
+          <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg dark:text-white hover:bg-blue-200 dark:hover:bg-blue-700 group">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 11 14H9a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 10 19Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            <span class="ms-3">Profil</span>
+          </a>
+          <a href="#" class="flex items-center p-3 text-gray-900 rounded-lg dark:text-white hover:bg-blue-200 dark:hover:bg-blue-700 group">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 15">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 7.5h11m0 0L8 3.786M12 7.5l-4 3.714M12 1h3c.53 0 1.04.196 1.414.544.375.348.586.82.586 1.313v9.286c0 .492-.21.965-.586 1.313A2.081 2.081 0 0 1 15 14h-3" />
+            </svg>
+            <span class="ms-3">Log Out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
 </body>
+
 
 </html>

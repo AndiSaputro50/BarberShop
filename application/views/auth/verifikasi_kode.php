@@ -16,14 +16,14 @@
         <div class="max-w-4xl w-full md:flex rounded-lg overflow-hidden bg-white shadow-lg">
             <div class="w-full md:w-1/2 p-8 md:order-2">
                 <div class="text-center md:text-left">
-                    <h2 class="text-3xl font-semibold">Forgot Password</h2>
+                    <h2 class="text-3xl font-semibold">Verifikasi Kode</h2>
                 </div>
                 <div class="my-5 border-b-2 border-gray-300"></div>
                 <form action="<?php echo base_url('auth/aksi_login') ?>" enctype="multipart/form-data" method="post">
                     <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-8">
                         <div class="#">
-                            <label class="block mb-2 font-semibold">Email</label>
-                            <input type="email" name="email" class="w-full rounded-lg border p-2 text-sm shadow-sm" placeholder="Enter Your Email" required>
+                            <label class="block mb-2 font-semibold">Kode</label>
+                            <input type="verifikasi_kode" name="verifikasi_kode" class="w-full rounded-lg border p-2 text-sm shadow-sm" placeholder="Enter Your Code Verification" required>
                         </div>
                     </div>
                     <div class="text-center md:text-left mt-8">

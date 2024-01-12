@@ -19,6 +19,10 @@ class Auth extends CI_Controller
         $this->load->view('auth/forgot_password');
     }
 
+    public function verifikasi_kode(){
+        $this->load->view('auth/verifikasi_kode');
+    }
+
     public function login()
     {
         $this->load->view('auth/login');
@@ -117,4 +121,6 @@ class Auth extends CI_Controller
     {
         $this->load->view('auth/coba_2');
     }
+
+
 }

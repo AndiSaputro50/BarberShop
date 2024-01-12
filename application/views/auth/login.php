@@ -43,37 +43,38 @@
                 </form>
             </div>
             <div class="w-full md:w-1/2 hidden md:block md:order-1">
-                <img src="https://img.freepik.com/free-vector/barbershop-waiting-clients-concept-illustration_114360-13991.jpg?w=740&t=st=1704700636~exp=1704701236~hmac=09bae152c8a8737337a706ecd0318caad7d8f09670bad9fbfc745e975a1c68f1" alt="Sample image">
+                <img src="https://img.freepik.com/free-vector/barbershop-waiting-clients-concept-illustration_114360-13991.jpg?w=740&t=st=1704789748~exp=1704790348~hmac=a1c53a0e4bf29054c84c86e0f94fc13c7a38053203d5d641d12e7d0bb200f0c7" alt="Sample image">
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const passwordInput = document.querySelector('input[type="password"]');
-            const togglePasswordButton = document.querySelector('.fa-eye-slash');
-
-            togglePasswordButton.addEventListener('click', function() {
-                if (passwordInput.type === 'password') {
-                    passwordInput.type = 'text';
-                    togglePasswordButton.className = 'fa-regular fa-eye';
-                } else {
-                    passwordInput.type = 'password';
-                    togglePasswordButton.className = 'fa-regular fa-eye-slash';
-                }
-            });
-        });
-        var error = "<?php echo $error; ?>";
-        if (error) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Kesalahan!!',
-                text: "Password atau email tidak valid!!",
-                showConfirmButton: false,
-                timer: 3000
-            });
-        }
-    </script>
 </body>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const passwordInput = document.querySelector('input[type="password"]');
+        const togglePasswordButton = document.getElementById('togglePassword');
+
+        togglePasswordButton.addEventListener('click', function() {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                togglePasswordButton.innerHTML = '<i class="fas fa-eye"></i>';
+            } else {
+                passwordInput.type = 'password';
+                togglePasswordButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            }
+        });
+    });
+
+    var error = "<?php echo $error; ?>";
+    if (error) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Kesalahan!!',
+            text: "Password atau email tidak valid!!",
+            showConfirmButton: false,
+            timer: 3000
+        });
+    }
+</script>
 
 </html>
