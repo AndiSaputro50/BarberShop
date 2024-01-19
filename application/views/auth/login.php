@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="sweetalert2.min.css">
     <script src="sweetalert2.min.js"></script>
@@ -36,8 +37,8 @@
                         </div>
                     </div>
                     <div class="text-center md:text-left mt-8">
-                        <button class="bg-blue-600 hover:bg-blue-800 px-4 py-2 text-white uppercase rounded text-xs tracking-wider transition-transform hover:scale-110 duration-300 ease-in-out" type="submit">Login</button>
-                        <a href="#" class="text-blue-600 font-semibold hover:underline ml-4">Forgot Password?</a>
+                        <button class="bg-blue-600 hover:bg-blue-800 px-4 py-2 text-white uppercase rounded text-sm tracking-wider" type="submit">Login</button>
+                        <a href="forgot_password" class="text-blue-600 font-semibold hover:underline ml-4">Forgot Password?</a>
                     </div>
                     <p class="text-sm mt-4 text-center md:text-left">Don't Have Account? <span>Please <a class="text-blue-600 font-semibold" href="register">Register</a></span></p>
                 </form>
@@ -52,29 +53,18 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const passwordInput = document.querySelector('input[type="password"]');
-        const togglePasswordButton = document.getElementById('togglePassword');
+        const togglePasswordButton = document.querySelector('.fa-eye-slash');
 
         togglePasswordButton.addEventListener('click', function() {
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
-                togglePasswordButton.innerHTML = '<i class="fas fa-eye"></i>';
+                togglePasswordButton.className = 'fa-solid fa-eye';
             } else {
                 passwordInput.type = 'password';
-                togglePasswordButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
+                togglePasswordButton.className = 'fa-solid fa-eye-slash';
             }
         });
     });
-
-    var error = "<?php echo $error; ?>";
-    if (error) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Kesalahan!!',
-            text: "Password atau email tidak valid!!",
-            showConfirmButton: false,
-            timer: 3000
-        });
-    }
 </script>
 
 </html>

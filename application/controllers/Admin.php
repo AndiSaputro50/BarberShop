@@ -23,9 +23,4 @@ class Admin extends CI_Controller
     {
         $this->load->view('admin/history_approve');
     }
-    public function profil()
-    {
-        $this->load->view('admin/profil');
-    }
-
 }

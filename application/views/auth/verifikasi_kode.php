@@ -19,7 +19,7 @@
                     <h2 class="text-3xl font-semibold">Verifikasi Kode</h2>
                 </div>
                 <div class="my-5 border-b-2 border-gray-300"></div>
-                <form action="<?php echo base_url('auth/aksi_login') ?>" enctype="multipart/form-data" method="post">
+                <form action="<?php echo base_url('auth/aksi_verifikasi_kode') ?>" enctype="multipart/form-data" method="post">
                     <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-8">
                         <div class="#">
                             <label class="block mb-2 font-semibold">Kode</label>
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="text-center md:text-left mt-8">
-                        <button class="bg-blue-600 hover:bg-blue-800 px-4 py-2 text-white uppercase rounded text-xs tracking-wider transition-transform hover:scale-110 duration-300 ease-in-out" type="submit">Submit</button>
+                        <button class="bg-blue-600 hover:bg-blue-800 px-4 py-2 text-white uppercase rounded text-sm tracking-wider" type="submit">Submit</button>
                         </div>
                 </form>
             </div>

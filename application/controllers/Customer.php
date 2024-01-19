@@ -16,11 +16,6 @@ class Customer extends CI_Controller
         $this->load->view('customer/dashboard');
     }
 
-    public function profil()
-    {
-        $this->load->view('customer/profil');
-    }
-
     public function customer()
     {
         $this->load->view('customer/customer');
@@ -31,5 +26,16 @@ class Customer extends CI_Controller
         $this->load->view('customer/history_customer');
     }
 
+    public function tambah_customer()
+    {
+        $this->load->view('customer/tambah_customer');
+    }
 
+    public function aksi_tambah_customer()
+    {
+        $name = $this->input->post('name');
+        $address = $this->input->post('address');
+        $phone_number = $this->input->post('phone_number');
+        $date = $this->input->post('date');
+    }
 }

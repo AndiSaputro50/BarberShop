@@ -29,6 +29,21 @@ class M_model extends CI_Model
         return $data;
     }
 
+    public function get_foto_by_id($id)
+    {
+        $this->db->select('image');
+        $this->db->from('user');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            $result = $query->row();
+            return $result->image;
+        } else {
+            return false;
+        }
+    }
+
     public function ubah_data($tabel, $data, $where)
     {
         $data = $this->db->update($tabel, $data, $where);

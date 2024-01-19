@@ -7,8 +7,7 @@
     <title>Register</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="sweetalert2.min.css">
-    <script src="sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="overflow-hidden bg-gray-100">
@@ -19,7 +18,7 @@
                     <h2 class="text-3xl font-semibold">PRO Barbershop</h2>
                 </div>
                 <div class="my-5 border-b-2 border-gray-300"></div>
-                <form action="<?php echo base_url('auth/aksi_login') ?>" enctype="multipart/form-data" method="post">
+                <form action="<?php echo base_url('auth/aksi_register') ?>" enctype="multipart/form-data" method="post">
                     <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-8">
                         <div class="#">
                             <label class="block mb-2 font-semibold">Username</label>
@@ -40,9 +39,8 @@
                         </div>
                     </div>
                     <div class="text-center md:text-left mt-8">
-                        <button class="bg-blue-600 hover:bg-blue-800 px-4 py-2 text-white uppercase rounded text-xs tracking-wider transition-transform hover:scale-110 duration-300 ease-in-out" type="submit">Register</button>
+                        <button class="bg-blue-600 hover:bg-blue-800 px-4 py-2 text-white uppercase rounded text-sm tracking-wider" type="submit">Register</button>
                     </div>
-                    <p class="text-sm mt-4 text-center md:text-left">Don't Have Account? <span>Please <a class="text-blue-600 font-semibold" href="register">Register</a></span></p>
                 </form>
             </div>
             <div class="w-full md:w-1/2 hidden md:block md:order-1">
@@ -50,7 +48,6 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const passwordInput = document.querySelector('input[type="password"]');
@@ -59,24 +56,15 @@
             togglePasswordButton.addEventListener('click', function() {
                 if (passwordInput.type === 'password') {
                     passwordInput.type = 'text';
-                    togglePasswordButton.className = 'fa-regular fa-eye';
+                    togglePasswordButton.className = 'fa-solid fa-eye';
                 } else {
                     passwordInput.type = 'password';
-                    togglePasswordButton.className = 'fa-regular fa-eye-slash';
+                    togglePasswordButton.className = 'fa-solid fa-eye-slash';
                 }
             });
         });
-        var error = "<?php echo $error; ?>";
-        if (error) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Kesalahan!!',
-                text: "Password atau email tidak valid!!",
-                showConfirmButton: false,
-                timer: 3000
-            });
-        }
     </script>
+
 </body>
 
 </html>
