@@ -2,8 +2,9 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php';
 
 class Auth extends CI_Controller
 {
@@ -20,6 +21,14 @@ class Auth extends CI_Controller
 
     public function logout()
     {
+        $role = $this->session->userdata('role');
+
+        if ($role === 'customer') {
+            $this->session->set_flashdata('success_logout', 'You Successfully Logout');
+        } elseif ($role === 'admin') {
+            $this->session->set_flashdata('success_logout', 'You Successfully Logout');
+        }
+
         $this->session->sess_destroy();
         redirect(base_url('auth/login'));
     }
@@ -45,7 +54,7 @@ class Auth extends CI_Controller
 
         // Validasi jika email tidak diisi
         if (empty($email)) {
-            $this->session->set_flashdata('error', 'Email harus diisi');
+            $this->session->set_flashdata('error', 'Email is required');
             redirect(base_url('auth/forgot_password'));
         }
 
@@ -73,7 +82,7 @@ class Auth extends CI_Controller
                 $mail->addAddress($email, 'Barbershop');
                 $mail->addReplyTo("$email");
                 $mail->isHTML(true);
-                $mail->Subject = 'Kode Verifikasi Password';
+                $mail->Subject = 'Password Verification Code';
 
                 // Konten HTML email dengan gaya CSS yang lebih modern
                 $mail->Body = '
@@ -145,10 +154,10 @@ class Auth extends CI_Controller
                         </head>
                         <body>
         <div class="container">
-            <h1>Kode Verifikasi Password</h1>
-            <p>Silakan gunakan kode verifikasi berikut:</p>
+            <h1>Password Verification Code</h1>
+            <p>Please use the verification code:</p>
             <div class="code">' . $generate . '</div>
-            <p>Untuk keamanan akun Anda, jangan bagikan kode ini kepada siapapun.</p>
+            <p>For the security of your account, do not share this code with anyone.</p>
         </div>
     </body>
                     </html>
@@ -161,18 +170,18 @@ class Auth extends CI_Controller
                         'email' => $email
                     ];
                     $this->session->set_userdata($data);
-                    $this->session->set_flashdata('success_forgot', 'Pesan telah terkirim');
+                    $this->session->set_flashdata('success_forgot', 'The message has been sent');
                     redirect(base_url('auth/verifikasi_kode'));
                 } else {
-                    $this->session->set_flashdata('error', 'Pesan tidak dapat terkirim. Error: ' . $mail->ErrorInfo);
+                    $this->session->set_flashdata('error', 'Message cannot be sent. Error:' . $mail->ErrorInfo);
                     redirect(base_url('auth/forgot_password'));
                 }
             } catch (Exception $e) {
-                $this->session->set_flashdata('error', 'Terjadi kesalahan: ' . $e->getMessage());
+                $this->session->set_flashdata('error', 'There is an error ' . $e->getMessage());
                 redirect(base_url('auth/forgot_password'));
             }
         } else {
-            $this->session->set_flashdata('error', 'Email tidak ditemukan');
+            $this->session->set_flashdata('error', 'Email not found');
             redirect(base_url('auth/forgot_password'));
         }
     }
@@ -185,16 +194,74 @@ class Auth extends CI_Controller
     public function aksi_verifikasi_kode()
     {
         $code = $this->input->post('code');
-        if ($code == $this->session->userdata('code')) {
-            $data = [
-                'status' => true,
-            ];
-            $this->session->set_userdata($data);
-            $this->session->set_flashdata('success_code', 'Verifikasi berhasil!');
+        $code_session = $this->session->userdata('code');
+    
+        if (strcmp($code, $code_session) == 0) {
+            // Kode verifikasi benar
+            $this->session->set_userdata('status', true);
             redirect(base_url('auth/ganti_password'));
         } else {
-            $this->session->set_flashdata('error', 'Code verifikasi salah!');
+            // Kode verifikasi salah
+            $this->session->set_flashdata('error', 'Incorrect verification code!');
             redirect(base_url('auth/verifikasi_kode'));
+        }
+    }
+    
+
+    public function ganti_password()
+    {
+        if (empty($this->session->userdata('status')) && empty($this->session->userdata('code'))) {
+            redirect(base_url('auth/forgot_password'));
+        } else if (empty($this->session->userdata('status'))) {
+            redirect(base_url('auth/verifikasi_kode'));
+        }
+        $this->load->view('auth/ganti_password');
+    }
+
+    public function aksi_ganti_password()
+    {
+        $pass = $this->input->post('password');
+        $con_pass = $this->input->post('con_password');
+
+        if (empty($pass) || empty($con_pass)) {
+            $this->session->set_flashdata('error', 'Both password fields must be filled in');
+            redirect(base_url('auth/ganti_password'));
+            return;
+        }
+
+        if (empty($this->session->userdata('status')) && empty($this->session->userdata('code'))) {
+            $this->session->set_flashdata('error', 'Sesi tidak valid');
+            redirect(base_url('auth/forgot_password'));
+            return;
+        } else if (empty($this->session->userdata('status'))) {
+            $this->session->set_flashdata('error', 'Sesi tidak valid');
+            redirect(base_url('auth/verifikasi_kode'));
+            return;
+        }
+
+        $this->form_validation->set_rules('password', 'Password', 'required|regex_match[/^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,}$/]');
+
+        if ($this->form_validation->run() === FALSE) {
+            $this->session->set_flashdata('error', 'Password must be at least 8 characters and a combination of numbers and letters');
+            redirect(base_url('auth/ganti_password'));
+            return;
+        } else {
+            if ($pass == $con_pass) {
+                // Lakukan penggantian password dengan metode enkripsi yang lebih aman, misalnya bcrypt atau Argon2
+                // Update kode enkripsi password sesuai kebutuhan
+                $hashed_password = md5($pass);
+
+                $data = [
+                    'password' => $hashed_password,
+                ];
+                $this->m_model->update('user', $data, array('id' => tampil_id_byemail($this->session->userdata('email'))));
+                $this->session->set_flashdata('success_pass', 'Password berhasil diubah');
+                redirect(base_url());
+            } else {
+                $this->session->set_flashdata('error', 'Password and password confirmation must be the same');
+                redirect(base_url('auth/ganti_password'));
+                return;
+            }
         }
     }
 
@@ -212,7 +279,7 @@ class Auth extends CI_Controller
 
         // Validasi jika data tidak terisi
         if (empty($email) || empty($password)) {
-            $this->session->set_flashdata('error', 'Data harus di isi lengkap');
+            $this->session->set_flashdata('error', 'Data must be filled in completely');
             redirect(base_url());
         }
 
@@ -232,20 +299,20 @@ class Auth extends CI_Controller
                 $this->session->set_userdata($data);
 
                 if ($result['role'] == 'admin') {
-                    $this->session->set_flashdata('login_admin', 'Anda berhasil login');
+                    $this->session->set_flashdata('login_admin', 'You have successfully logged in');
                     redirect(base_url() . "admin/dashboard");
                 } elseif ($result['role'] == 'customer') {
-                    $this->session->set_flashdata('login_customer', 'Anda berhasil login');
-                    redirect(base_url() . 'customer');
+                    $this->session->set_flashdata('login_customer', 'You have successfully logged in');
+                    redirect(base_url() . 'customer/dashboard');
                 }
             } else {
                 // Password salah
-                $this->session->set_flashdata('error', 'Password salah');
+                $this->session->set_flashdata('error', 'Password wrong');
                 redirect(base_url('auth/login'));
             }
         } else {
             // Email salah
-            $this->session->set_flashdata('error', 'Email salah');
+            $this->session->set_flashdata('error', 'Email wrong');
             redirect(base_url('auth/login'));
         }
     }
@@ -290,7 +357,7 @@ class Auth extends CI_Controller
                 redirect(base_url('auth/login'));
             }
         } else {
-            $this->session->set_flashdata('error_email', 'Email sudah terdaftar');
+            $this->session->set_flashdata('error_regist', 'Email is registered');
             redirect(base_url('auth/register'));
         }
     }

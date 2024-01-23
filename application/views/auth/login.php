@@ -8,8 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="sweetalert2.min.css">
-    <script src="sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body class="overflow-hidden bg-gray-100">
@@ -24,12 +23,12 @@
                     <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-8">
                         <div class="#">
                             <label class="block mb-2 font-semibold">Email</label>
-                            <input type="email" name="email" class="w-full rounded-lg border p-2 text-sm shadow-sm" placeholder="Enter Your Email" required>
+                            <input type="email" name="email" class="w-full rounded-lg border p-2 text-sm shadow-sm" placeholder="Enter Your Email">
                         </div>
                         <div class="#">
                             <label for="password" class="block mb-2 font-semibold">Password</label>
                             <div class="relative">
-                                <input type="password" name="password" class="w-full rounded-lg border p-2 text-sm shadow-sm" placeholder="Enter Your Password" required>
+                                <input type="password" name="password" class="w-full rounded-lg border p-2 text-sm shadow-sm" placeholder="Enter Your Password">
                                 <span class="absolute inset-y-0 right-0 flex items-center pr-3">
                                     <i class="fa-solid fa-eye-slash"></i>
                                 </span>
@@ -65,6 +64,42 @@
             }
         });
     });
+</script>
+
+<script>
+    window.onload = function() {
+        <?php if ($this->session->flashdata('success_regist')) : ?>
+            // Tampilkan SweetAlert jika registrasi berhasil
+            Swal.fire({
+                icon: 'success',
+                title: 'Register Succesfully!',
+                text: '<?= $this->session->flashdata('success_regist'); ?>',
+                timer: 2500, // Waktu tampilan SweetAlert dalam milidetik (2.5 detik)
+                showConfirmButton: false, // Menghilangkan tombol "OK"
+                timerProgressBar: true // Menampilkan progress bar
+            }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    window.location.href = 'login'; // Redirect atau lakukan tindakan lain jika diperlukan setelah SweetAlert hilang
+                }
+            });
+        <?php endif; ?>
+    };
+
+    <?php if ($this->session->flashdata('error')) : ?>
+        // Tampilkan SweetAlert jika terdapat error dari session
+        Swal.fire({
+            icon: 'error',
+            title: 'Login Failed',
+            text: '<?= $this->session->flashdata('error'); ?>',
+            timer: 2500, // Waktu tampilan SweetAlert dalam milidetik (3.5 detik)
+            showConfirmButton: false, // Menghilangkan tombol "OK"
+            timerProgressBar: true // Menampilkan progress bar
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                window.location.href = 'login'; // Redirect atau lakukan tindakan lain jika diperlukan setelah SweetAlert hilang
+            }
+        });
+    <?php endif; ?>
 </script>
 
 </html>

@@ -7,8 +7,8 @@
     <title>PRO Barbershop</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="sweetalert2.min.css">
-    <script src="sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 </head>
 
 <body class="overflow-hidden bg-gray-100">
@@ -16,7 +16,7 @@
         <div class="max-w-4xl w-full md:flex rounded-lg overflow-hidden bg-white shadow-lg">
             <div class="w-full md:w-1/2 p-8 md:order-2">
                 <div class="text-center md:text-left">
-                    <h2 class="text-3xl font-semibold">Verifikasi Kode</h2>
+                    <h2 class="text-3xl font-semibold">Verifikasi Code</h2>
                 </div>
                 <div class="my-5 border-b-2 border-gray-300"></div>
                 <form action="<?php echo base_url('auth/aksi_verifikasi_kode') ?>" enctype="multipart/form-data" method="post">
@@ -28,15 +28,14 @@
                     </div>
                     <div class="text-center md:text-left mt-8">
                         <button class="bg-blue-600 hover:bg-blue-800 px-4 py-2 text-white uppercase rounded text-sm tracking-wider" type="submit">Submit</button>
-                        </div>
+                    </div>
                 </form>
             </div>
             <div class="w-full md:w-1/2 hidden md:block md:order-1">
-                <img src="https://img.freepik.com/premium-photo/blue-lock-icon-3d-lock-icon-white-background-3d-illustration_394271-1781.jpg?w=740" alt="Sample image">
+                <img src="<?php echo base_url('image/home_page/pw.png') ?>" alt="Sample image">
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const passwordInput = document.querySelector('input[type="password"]');
@@ -52,16 +51,32 @@
                 }
             });
         });
-        var error = "<?php echo $error; ?>";
-        if (error) {
+    </script>
+
+    <script>
+        <?php if ($this->session->flashdata('success_forgot')) : ?>
+            Swal.fire({
+                icon: 'success',
+                title: 'Message sent!',
+                text: '<?php echo $this->session->flashdata('success'); ?>',
+                timer: 2500, // Waktu tampilan SweetAlert dalam milidetik (dalam contoh ini, 2500ms atau 2,5 detik)
+                showConfirmButton: false // Menghilangkan tombol "OK"
+            }).then(() => {
+                window.location.href = '<?php echo base_url('auth/verifikasi_kode'); ?>';
+            });
+        <?php endif; ?>
+
+        <?php if ($this->session->flashdata('error')) : ?>
             Swal.fire({
                 icon: 'error',
-                title: 'Kesalahan!!',
-                text: "Password atau email tidak valid!!",
-                showConfirmButton: false,
-                timer: 3000
+                title: 'Verification failed!',
+                text: '<?php echo $this->session->flashdata('error'); ?>',
+                timer: 2500, // Waktu tampilan SweetAlert dalam milidetik (dalam contoh ini, 2500ms atau 2,5 detik)
+                showConfirmButton: false // Menghilangkan tombol "OK"
+            }).then(() => {
+                window.location.href = '<?php echo base_url('auth/verifikasi_kode'); ?>';
             });
-        }
+        <?php endif; ?>
     </script>
 </body>
 

@@ -7,8 +7,8 @@
     <title>PRO Barbershop</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="sweetalert2.min.css">
-    <script src="sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 </head>
 
 <body class="overflow-hidden bg-gray-100">
@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const passwordInput = document.querySelector('input[type="password"]');
@@ -52,17 +52,17 @@
                 }
             });
         });
-        var error = "<?php echo $error; ?>";
-        if (error) {
+    </script>
+
+    <script>
+        <?php if ($this->session->flashdata('error')) { ?>
             Swal.fire({
                 icon: 'error',
-                title: 'Kesalahan!!',
-                text: "Password atau email tidak valid!!",
-                showConfirmButton: false,
-                timer: 3000
+                title: 'Message failed to send',
+                text: '<?php echo $this->session->flashdata('error'); ?>'
+            }).then(() => {
+                window.location.href = '<?php echo base_url('auth/ganti_password'); ?>';
             });
-        }
+        <?php } ?>
     </script>
-</body>
-
 </html>

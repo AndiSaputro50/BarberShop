@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRO Barbershop</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 </head>
 
 <body>
     <?php $this->load->view('sidebar_c') ?>
-    <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
-        <!-- Statistics Cards -->
+    <!-- <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
         <div class="grid grid-cols-1 sm:grid-cols-2 p-4 gap-4">
             <div class="bg-blue-400 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-4 border-b-8 border-blue-500 dark:border-gray-600 text-white font-medium group">
                 <div class="flex justify-center items-center w-14 h-14 bg-white rounded-full">
@@ -37,9 +37,7 @@
                 </div>
             </div>
         </div>
-        <!-- ./Statistics Cards -->
 
-        <!-- Client Table -->
         <div class="mt-4 mx-4">
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
                 <div class="w-full overflow-x-auto">
@@ -62,8 +60,23 @@
                     <span class="col-span-2"></span>
                 </div>
             </div>
-        </div>
-        <!-- ./Client Table -->
+        </div> -->
 </body>
+<script>
+    function displaySweetAlert() {
+        const login_customer = "<?php echo $this->session->flashdata('login_customer'); ?>";
+
+        if (login_customer) {
+            Swal.fire({
+                title: 'Login successful',
+                text: login_customer,
+                icon: 'success',
+                showConfirmButton: false, // Untuk menghilangkan tombol OK
+                timer: 2500 // Tambahkan timer di sini (dalam milidetik)
+            });
+        }
+    }
+    window.onload = displaySweetAlert;
+</script>
 
 </html>

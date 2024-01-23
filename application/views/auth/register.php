@@ -7,7 +7,7 @@
     <title>Register</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body class="overflow-hidden bg-gray-100">
@@ -65,6 +65,25 @@
         });
     </script>
 
+    <script>
+        window.onload = function() {
+            <?php if ($this->session->flashdata('error_regist')) : ?>
+                // Tampilkan SweetAlert jika registrasi berhasil
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Register Failed',
+                    text: '<?= $this->session->flashdata('error_regist'); ?>',
+                    timer: 2500, // Waktu tampilan SweetAlert dalam milidetik (2.5 detik)
+                    showConfirmButton: false, // Menghilangkan tombol "OK"
+                    timerProgressBar: true // Menampilkan progress bar
+                }).then((result) => {
+                    if (result.dismiss === Swal.DismissReason.timer) {
+                        window.location.href = 'register'; // Redirect atau lakukan tindakan lain jika diperlukan setelah SweetAlert hilang
+                    }
+                });
+            <?php endif; ?>
+        };
+    </script>
 </body>
 
 </html>

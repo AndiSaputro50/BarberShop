@@ -2,120 +2,76 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataTables Styling</title>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        table.dataTable {
-            border-collapse: collapse;
-            width: 100%;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        table.dataTable thead th {
-            background-color: #f8f9fa;
-            border-bottom: 2px solid #dee2e6;
-            color: #495057;
-            font-weight: bold;
-            text-align: left;
-        }
-
-        table.dataTable tbody td {
-            background-color: #fff;
-            color: #495057;
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        table.dataTable tbody tr:nth-of-type(even) {
-            background-color: #f8f9fa;
-        }
-
-        table.dataTable tbody tr:hover {
-            background-color: #e9ecef;
-        }
-
-        table.dataTable.no-footer {
-            border-bottom: none;
-        }
-
-        div.dataTables_paginate {
-            margin-top: 10px;
-        }
-
-        div.dataTables_paginate ul.pagination {
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-            margin: 0;
-            padding: 0;
-        }
-
-        div.dataTables_paginate ul.pagination li.page-item {
-            list-style: none;
-        }
-
-        div.dataTables_paginate ul.pagination li.page-item a.page-link {
-            padding: 5px 10px;
-            border: 1px solid #dee2e6;
-            border-radius: 4px;
-            color: #495057;
-            transition: all 0.3s ease;
-        }
-
-        div.dataTables_paginate ul.pagination li.page-item a.page-link:hover {
-            background-color: #f8f9fa;
-        }
-
-        div.dataTables_paginate ul.pagination li.page-item.active a.page-link {
-            background-color: #007bff;
-            color: #fff;
-            border-color: #007bff;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sidebar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 </head>
 
-<body>
+<body class="bg-gray-100 font-[Poppins]">
 
-    <table id="example" class="display">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011-04-25</td>
-                <td>$320,800</td>
-            </tr>
-            <!-- Add more table rows here -->
-        </tbody>
-    </table>
+  <!-- Navbar -->
+  <nav class="bg-blue-900 p-3.5 text-white">
+    <div class="container mx-auto flex justify-between items-center">
+      <span class="text-4xl cursor-pointer" onclick="Openbar()">
+        <i class="bi bi-filter-left"></i>
+      </span>
+      <div class="flex items-center space-x-2">
+        <img src="<?php echo base_url('image/home_page/Logo.png') ?>" style="width: 40px; height: 40px;"></img>
+        <h1 class="text-[15px] text-gray-200 font-bold">PRO Barbershop</h1>
+      </div>
+    </div>
+  </nav>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#example').DataTable({
-                pagingType: 'full_numbers'
-            });
-        });
-    </script>
+  <!-- Sidebar -->
+  <div class="sidebar fixed top-0 bottom-0 lg:left-0 left-[-300px] duration-1000 p-2 w-[300px] overflow-y-auto text-center bg-blue-900 shadow h-screen">
+    <div class="text-gray-50 text-xl">
+      <div class="p-2.5 mt-1 flex items-center rounded-md">
+        <!-- <img src="<?php echo base_url('image/home_page/Logo.png') ?>" style="width: 80px; height: 80px;"></img> -->
+        <h1 class="text-[15px] ml-3 text-xl text-gray-200 font-bold">PRO Barbershop</h1>
+        <i class="bi bi-filter-left ml-20 cursor-pointer lg:hidden" onclick="Openbar()"></i>
+      </div>
+      <hr class="my-2.5 text-gray-900">
+
+      <a href="<?php echo base_url('admin/dashboard') ?>">
+        <div class="p-2 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-900">
+          <i class="bi bi-speedometer2"></i>
+          <span class="text-[15px] ml-4 text-gray-200">Dashboard</span>
+        </div>
+      </a>
+
+      <a href="<?php echo base_url('admin/approve') ?>">
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-900">
+          <i class="bi bi-chat-dots"></i>
+          <span class="text-[15px] ml-4 text-gray-200">Approve</span>
+        </div>
+      </a>
+
+      <a href="<?php echo base_url('admin/history_approve') ?>">
+        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-900">
+          <i class="bi bi-clock-history"></i>
+          <span class="text-[15px] ml-4 text-gray-200">History Approve</span>
+        </div>
+      </a>
+
+      <a href="#">
+        <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-gray-900">
+          <i class="bi bi-door-open"></i>
+          <span class="text-[15px] ml-4 text-gray-200">Logout</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <script>
+    function Openbar() {
+      document.querySelector('.sidebar').classList.toggle('left-[-300px]')
+    }
+  </script>
 </body>
 
 </html>
