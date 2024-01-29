@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <style>
     :root {
@@ -380,6 +381,7 @@
     .nav-toggle-btn {
         color: var(--white);
         font-size: 40px;
+        margin-left: auto;
     }
 
     .navbar {
@@ -1576,41 +1578,35 @@
 
                         <p class="item-title">Call Us :</p>
 
-                        <a href="tel:01234567895" class="item-link">012 (345) 67 895</a>
+                        <a href="tel:01234567895" class="item-link"></a>
                     </li>
 
                     <li class="header-top-item">
                         <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
 
-                        <p class="item-title">Opening Hour :</p>
+                        <p class="item-title">Opening Hour : Monday-Friday 08.00 - 16.00 </p>
 
-                        <p class="item-text">Sunday - Friday, 08 am - 09 pm</p>
+                        <p class="item-text"></p>
                     </li>
 
                     <li>
                         <ul class="social-list">
 
                             <li>
-                                <a href="#" class="social-link">
+                                <a href="https://www.facebook.com/groups/278869229210170/" class="social-link">
                                     <ion-icon name="logo-facebook"></ion-icon>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="#" class="social-link">
-                                    <ion-icon name="logo-twitter"></ion-icon>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="social-link">
+                                <a href="https://www.youtube.com/results?search_query=pro+barber+haircut" class="social-link">
                                     <ion-icon name="logo-youtube"></ion-icon>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="#" class="social-link">
-                                    <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+                                    <ion-icon name="logo-instagram"></ion-icon>
                                 </a>
                             </li>
 
@@ -1652,10 +1648,10 @@
                     <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
                 </button>
 
-                <a href="#" class="btn has-before">
-                    <span class="span">History Barbershop</span>
+                <!-- <a href="#" class="#"> -->
+                <!-- <span class="span">History Barbershop</span> -->
 
-                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                <!-- <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon> -->
                 </a>
 
             </div>
@@ -1848,8 +1844,6 @@
 
                 <div class="footer-brand">
 
-
-
                 </div>
 
                 <div class="footer-link-box">
@@ -1861,23 +1855,15 @@
                         </li>
 
                         <li>
-                            <a href="#" class="footer-link has-before">Hair Cutting</a>
+                            <a href="#" class="footer-link has-before">Hair Cutting Style</a>
                         </li>
 
                         <li>
-                            <a href="#" class="footer-link has-before">Shaving & Design</a>
+                            <a href="#" class="footer-link has-before">Stylist Shaving</a>
                         </li>
 
                         <li>
-                            <a href="#" class="footer-link has-before">Hair Colors</a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="footer-link has-before">Beauty & Spa</a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="footer-link has-before">Body Massages</a>
+                            <a href="#" class="footer-link has-before">Multi Hair Colors</a>
                         </li>
 
                     </ul>
@@ -1892,12 +1878,12 @@
                     <ul class="footer-list">
 
                         <li>
-                            <p class="footer-list-title">Contact Us</p>
+                            <p class="footer-list-title" >Contact Us</p>
                         </li>
 
                         <li class="footer-list-item">
                             <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-
+                            
                             <address class="contact-link">
                                 7528 Roberts Ave. Palm Bay, FL 32907
                             </address>
@@ -2047,6 +2033,20 @@
     }
 
     addEventOnElem(filterBtns, "click", filter);
+</script>
+
+<script>
+    <?php if ($this->session->flashdata('success_pass')) { ?>
+        Swal.fire({
+            icon: 'success',
+            title: 'Successfully changed password!',
+            text: '<?php echo $this->session->flashdata('success'); ?>',
+            showConfirmButton: false,
+            timer: 2500
+        }).then(() => {
+            window.location.href = '<?php echo base_url(); ?>';
+        });
+    <?php } ?>
 </script>
 
 </html>

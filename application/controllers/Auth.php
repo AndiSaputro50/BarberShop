@@ -186,6 +186,7 @@ class Auth extends CI_Controller
         }
     }
 
+    // Controller
     public function verifikasi_kode()
     {
         $this->load->view('auth/verifikasi_kode');
@@ -195,8 +196,8 @@ class Auth extends CI_Controller
     {
         $code = $this->input->post('code');
         $code_session = $this->session->userdata('code');
-    
-        if (strcmp($code, $code_session) == 0) {
+
+        if (!empty($code_session) && strcmp($code, $code_session) == 0) {
             // Kode verifikasi benar
             $this->session->set_userdata('status', true);
             redirect(base_url('auth/ganti_password'));
@@ -206,7 +207,7 @@ class Auth extends CI_Controller
             redirect(base_url('auth/verifikasi_kode'));
         }
     }
-    
+
 
     public function ganti_password()
     {
@@ -255,7 +256,7 @@ class Auth extends CI_Controller
                     'password' => $hashed_password,
                 ];
                 $this->m_model->update('user', $data, array('id' => tampil_id_byemail($this->session->userdata('email'))));
-                $this->session->set_flashdata('success_pass', 'Password berhasil diubah');
+                $this->session->set_flashdata('success_pass', 'Password changed successfully');
                 redirect(base_url());
             } else {
                 $this->session->set_flashdata('error', 'Password and password confirmation must be the same');

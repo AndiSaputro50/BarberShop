@@ -8,75 +8,53 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-    <!-- <style>
+    <!-- Add Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
         .pagination {
             display: flex;
             justify-content: center;
             gap: 1rem;
         }
-
-        .pagination a,
-        .pagination strong {
-            display: block;
-            width: 2rem;
-            height: 2rem;
-            text-align: center;
-            line-height: 2rem;
-            border: 1px solid #ccc;
-            background-color: #fff;
-            border-radius: 4px;
-            color: #333;
-        }
-
-        .pagination a:hover,
-        .pagination strong {
-            display: block;
-            width: 2rem;
-            height: 2rem;
-            border: 1px solid #3b82f6;
-            /* Ganti dengan warna sesuai kebutuhan Anda */
-            background-color: #3b82f6;
-            /* Ganti dengan warna sesuai kebutuhan Anda */
-            text-align: center;
-            line-height: 2rem;
-            color: #fff;
-        }
-    </style> -->
+    </style>
 </head>
 
 <body>
-    <!-- <div class="relative min-h-screen md:flex" data-dev-hint="container"> -->
-    <?php $this->load->view('sidebar_a') ?>
-    <!-- <main id="content" class="max-h-screen overflow-y-auto flex-1 p-6 lg:px-8">
-            <div class="container mx-auto">
+    <div class="relative min-h-screen md:flex" data-dev-hint="container">
+        <?php $this->load->view('sidebar_a') ?>
+        <main id="content" class="max-h-screen overflow-y-auto flex-1 p-6 lg:px-8">
+            <div class="container mx-auto px-4">
                 <div class="grid gap-6 mb-2 mt-2 md:grid-cols-2">
                     <div class="py-2 bg-white shadow border border-gray-900">
-                        <p class="text-lg text-center font-medium">
-                            APPROVE
+                        <p class="text-md text-center font-medium">
+                            TOTAL APPROVE
                         </p>
-                        <div class="text-3xl text-center text-blue-700 font-semibold mb-2">
+                        <div class="text-3xl text-center text-blue-500 font-semibold mb-2">
                             <span class="fa-stack fa-xs">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="bi bi-chat-dots"></i>
+                                <i class="fa-solid fa-calendar-days fa-stack-1x fa-inverse"></i>
                             </span>
+                            Approve
                         </div>
                     </div>
 
                     <div class="py-2 bg-white shadow border border-gray-900">
-                        <p class="text-lg text-center font-medium">
-                            HISTORY APPROVE
+                        <p class="text-md text-center font-medium">
+                            TOTAL HISTORY
                         </p>
-                        <div class="text-3xl text-center text-blue-700 font-semibold mb-2">
+                        <div class="text-3xl text-center text-blue-500 font-semibold mb-2">
                             <span class="fa-stack fa-xs">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="bi bi-clock-history"></i>
+                                <i class="fa-solid fa-calendar-days fa-stack-1x fa-inverse"></i>
                             </span>
+                            Times
                         </div>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 px-2 md:grid-cols-3 rounded-t-lg py-2.5 bg-blue-700 text-white text-xl">
-                    <div class="flex justify-center mb-2 md:justify-start md:pl-6">
-                        CUSTOMER DATA
+                <div class="grid grid-cols-1 px-2 mt-6 md:grid-cols-3 rounded-t-lg py-2.5 bg-blue-500 text-white text-xl">
+                    <div class="flex justify-center mb-2 md:justify-start md:pl-6 font-semibold">
+                        APPROVE DATA
                     </div>
                     <div class="flex flex-wrap justify-center col-span-2 gap-2 md:justify-end">
                     </div>
@@ -86,42 +64,29 @@
                         <thead class="bg-gray-50">
                             <tr>
                                 <th class="px-3 py-2 text-xs text-gray-500">NO</th>
-                                <th class="px-3 py-2 text-xs text-gray-500">NAME</th>
+                                <th class="px-3 py-2 text-xs text-gray-500">ORDER TIME</th>
                                 <th class="px-3 py-2 text-xs text-gray-500">ADDRESS</th>
                                 <th class="px-3 py-2 text-xs text-gray-500">PHONE NUMBER</th>
                                 <th class="px-3 py-2 text-xs text-gray-500">DATE</th>
+                                <th class="px-3 py-2 text-xs text-gray-500">STATUS</th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-300">
-
-                            <tr class="whitespace-nowrap">
-                                <td class="px-3 py-4 text-sm text-gray-500"></td>
-                                <td class="px-3 py-4 text-sm text-gray-500 uppercase"></td>
-                                <td class="px-3 py-4">
-                                    <div class="text-sm text-gray-900">
-                                    </div>
-                                </td>
-                                <td class="px-3 py-4">
-                                    <div class="text-sm text-gray-900">
-                                    </div>
-                                </td>
-                                <td class="px-3 py-4">
-                                    <div class="text-sm text-gray-900">
-                                    </div>
-                                </td>
-                                <td class="px-3 py-4">
-                                    <div class="text-sm text-gray-900">
-                                    </div>
-                                </td>
-                                <td class="px-3 py-4">
-                                    <div class="text-sm text-gray-900">
-                                    </div>
-                                </td>
-                                <td class="px-3 py-4">
-                                    <div class="text-sm text-gray-900 uppercase">
-                                    </div>
-                                </td>
-                            </tr>
+                            <?php
+                            $no = 0;
+                            foreach ($jml_approve as $row) :
+                                $no++
+                            ?>
+                                <tr>
+                                    <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $no ?></td>
+                                    <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $row->order_time ?></td>
+                                    <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $row->address ?></td>
+                                    <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $row->phone_number ?></td>
+                                    <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $row->date ?></td>
+                                    <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $row->status ?></td>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
                         </tbody>
                     </table>
                     <div class="rounded-b-lg border-t border-gray-200 px-4 py-2">
@@ -129,20 +94,20 @@
                 </div>
             </div>
         </main>
-    </div> -->
+    </div>
 
 </body>
 <script>
     function displaySweetAlert() {
-        const login_admin = "<?php echo $this->session->flashdata('login_admin'); ?>";
+        const login_customer = "<?php echo $this->session->flashdata('login_customer'); ?>";
 
-        if (login_admin) {
+        if (login_customer) {
             Swal.fire({
                 title: 'Login successful',
-                text: login_admin,
+                text: login_customer,
                 icon: 'success',
-                showConfirmButton: false, // Untuk menghilangkan tombol OK
-                timer: 2500 // Tambahkan timer di sini (dalam milidetik)
+                showConfirmButton: false,
+                timer: 2500
             });
         }
     }

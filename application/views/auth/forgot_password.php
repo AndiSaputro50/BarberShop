@@ -23,11 +23,11 @@
                     <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-8">
                         <div class="#">
                             <label class="block mb-2 font-semibold">Email</label>
-                            <input type="email" name="email" class="w-full rounded-lg border p-2 text-sm shadow-sm" placeholder="Enter Your Email" required>
+                            <input type="email" name="email" class="w-full rounded-lg border p-2 text-sm shadow-lg" placeholder="Enter Your Email" required>
                         </div>
                     </div>
                     <div class="text-center md:text-left mt-8">
-                        <button class="bg-blue-600 hover:bg-blue-800 px-4 py-2 text-white uppercase rounded text-sm tracking-wider" type="submit">Submit</button>
+                        <button class="bg-blue-600 hover:bg-blue-800 px-4 py-2 text-white uppercase rounded text-sm tracking-wider shadow-lg" type="submit">Submit</button>
                         </div>
                 </form>
             </div>

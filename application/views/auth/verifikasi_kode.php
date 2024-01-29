@@ -16,18 +16,18 @@
         <div class="max-w-4xl w-full md:flex rounded-lg overflow-hidden bg-white shadow-lg">
             <div class="w-full md:w-1/2 p-8 md:order-2">
                 <div class="text-center md:text-left">
-                    <h2 class="text-3xl font-semibold">Verifikasi Code</h2>
+                    <h2 class="text-3xl font-semibold">VERIVIKASI CODE</h2>
                 </div>
                 <div class="my-5 border-b-2 border-gray-300"></div>
                 <form action="<?php echo base_url('auth/aksi_verifikasi_kode') ?>" enctype="multipart/form-data" method="post">
                     <div class="grid grid-cols-1 md:grid-cols-1 gap-5 md:gap-8 mt-8">
                         <div class="#">
                             <label class="block mb-2 font-semibold">Kode</label>
-                            <input type="verifikasi_kode" name="verifikasi_kode" class="w-full rounded-lg border p-2 text-sm shadow-sm" placeholder="Enter Your Code Verification" required>
+                            <input type="text" name="code" class="w-full rounded-lg border p-2 text-sm shadow-lg" placeholder="Enter Your Code Verification" required>
                         </div>
                     </div>
                     <div class="text-center md:text-left mt-8">
-                        <button class="bg-blue-600 hover:bg-blue-800 px-4 py-2 text-white uppercase rounded text-sm tracking-wider" type="submit">Submit</button>
+                        <button class="bg-blue-600 hover:bg-blue-800 px-4 py-2 text-white uppercase rounded text-sm tracking-wider shadow-lg" type="submit">Submit</button>
                     </div>
                 </form>
             </div>
