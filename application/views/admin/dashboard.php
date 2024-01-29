@@ -28,14 +28,14 @@
                 <div class="grid gap-6 mb-2 mt-2 md:grid-cols-2">
                     <div class="py-2 bg-white shadow border border-gray-900">
                         <p class="text-md text-center font-medium">
-                            TOTAL APPROVE
+                            TOTAL CUSTOMER
                         </p>
                         <div class="text-3xl text-center text-blue-500 font-semibold mb-2">
                             <span class="fa-stack fa-xs">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa-solid fa-calendar-days fa-stack-1x fa-inverse"></i>
                             </span>
-                            Approve
+                            <?php echo $jml_approve ?>
                         </div>
                     </div>
 
@@ -48,7 +48,7 @@
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa-solid fa-calendar-days fa-stack-1x fa-inverse"></i>
                             </span>
-                            Times
+                            <?php echo $jml_approve ?>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                         <tbody class="bg-white divide-y divide-gray-300">
                             <?php
                             $no = 0;
-                            foreach ($jml_approve as $row) :
+                            foreach ($customerr as $row) :
                                 $no++
                             ?>
                                 <tr>

@@ -38,7 +38,7 @@
 
             <div class="grid grid-cols-1 px-2 mt-6 md:grid-cols-3 rounded-t-lg py-2.5 bg-blue-500 text-white text-xl">
                 <div class="flex justify-center mb-2 md:justify-start md:pl-6 font-semibold">
-                    CUSTOMER DATA
+                    HISTORY CUSTOMER
                 </div>
                 <div class="flex flex-wrap justify-center col-span-2 gap-2 md:justify-end">
                 </div>
@@ -60,25 +60,26 @@
                         <?php
                         $no = 0;
                         foreach ($customerrs as $row) :
-                            $no++
+                            $no++;
                         ?>
-                            <tr>
-                            <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $no ?></td>
-                                <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $row->order_time ?></td>
-                                <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $row->address ?></td>
-                                <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $row->phone_number ?></td>
-                                <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $row->date ?></td>
-                                <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $row->status ?></td>
-                                <td data-cell="ACTION" class="ml-20 px-3 py-5 flex">
-                                    <button onclick="hapus(<?php echo $row->id ?>)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-3 rounded ml-3">
-                                        <span class="">
-                                            <i class="bi bi-trash"></i>
-                                        </span>
-                                    </button>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $no ?></td>
+                                    <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $row->order_time ?></td>
+                                    <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $row->address ?></td>
+                                    <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $row->phone_number ?></td>
+                                    <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $row->date ?></td>
+                                    <td class="whitespace-nowrap px-4 py-2 text-center text-gray-700"><?php echo $row->status ?></td>
+                                    <td data-cell="ACTION" class="ml-20 px-3 py-5 flex">
+                                        <button onclick="hapus(<?php echo $row->id ?>)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-3 rounded ml-3">
+                                            <span>
+                                                <i class="bi bi-trash"></i>
+                                            </span>
+                                        </button>
+                                    </td>
+                                </tr>
                         <?php endforeach ?>
                     </tbody>
+
                 </table>
                 <div class="rounded-b-lg border-t border-gray-200 px-4 py-2">
                 </div>

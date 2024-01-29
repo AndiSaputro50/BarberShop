@@ -123,17 +123,17 @@
                     <span class="text-[18px] ml-2">History Approve</span>
                 </a>
 
-                <div class="m-12 ml-14 mt-[30vh] text-2xl ">
+                <!-- <div class="m-12 ml-14 mt-[30vh] text-2xl ">
                     <span id="current-time"></span>
-                </div>
+                </div> -->
             </nav>
         </div>
         <a onclick="logout()" class="flex items-center py-3 text-white px-4 transition duration-300 hover:bg-blue-700 no-underline gap-2" activeclass="active">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-door-open mt-[4vh]" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-door-open mt-[55vh]" viewBox="0 0 16 16">
                 <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1" />
                 <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117M11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5M4 1.934V15h6V1.077z" />
             </svg>
-            <span class="text-[18px] mt-[4vh] ml-2">Logout</span>
+            <span class="text-[18px] mt-[55vh] ml-2">Logout</span>
         </a>
     </aside>
 
@@ -176,33 +176,33 @@
 
         // Memanggil toggleSidebar() saat tombol hamburger diklik
 
-        document.getElementById("mobile-menu-button").addEventListener("click", toggleSidebar);
-        // Fungsi untuk mengupdate waktu setiap detik
-        function updateClock() {
-            var currentTime = new Date();
-            var options = {
-                timeZone: 'Asia/Jakarta',
-                hour12: false,
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            };
-            var formattedTime = currentTime.toLocaleString('id-ID', options);
-            var formattedDate = currentTime.toLocaleString('id-ID', {
-                timeZone: 'Asia/Jakarta',
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit'
-            });
-            var dateTimeString = formattedDate + ' ' + formattedTime;
-            document.getElementById("current-time").innerHTML = dateTimeString;
-        }
+        // document.getElementById("mobile-menu-button").addEventListener("click", toggleSidebar);
+        // // Fungsi untuk mengupdate waktu setiap detik
+        // function updateClock() {
+        //     var currentTime = new Date();
+        //     var options = {
+        //         timeZone: 'Asia/Jakarta',
+        //         hour12: false,
+        //         hour: '2-digit',
+        //         minute: '2-digit',
+        //         second: '2-digit'
+        //     };
+        //     var formattedTime = currentTime.toLocaleString('id-ID', options);
+        //     var formattedDate = currentTime.toLocaleString('id-ID', {
+        //         timeZone: 'Asia/Jakarta',
+        //         year: 'numeric',
+        //         month: '2-digit',
+        //         day: '2-digit'
+        //     });
+        //     var dateTimeString = formattedDate + ' ' + formattedTime;
+        //     document.getElementById("current-time").innerHTML = dateTimeString;
+        // }
 
-        // Memanggil fungsi pertama kali
-        updateClock();
+        // // Memanggil fungsi pertama kali
+        // updateClock();
 
-        // Mengatur interval untuk memperbarui waktu setiap 1 detik (1000 ms)
-        setInterval(updateClock, 1000);
+        // // Mengatur interval untuk memperbarui waktu setiap 1 detik (1000 ms)
+        // setInterval(updateClock, 1000);
     </script>
 </body>
 

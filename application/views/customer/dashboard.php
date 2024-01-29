@@ -35,7 +35,7 @@
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa-solid fa-calendar-days fa-stack-1x fa-inverse"></i>
                             </span>
-                            <?php echo $customer ?> Customer
+                            <?php echo $customer ?>
                         </div>
                     </div>
 
@@ -48,7 +48,7 @@
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa-solid fa-calendar-days fa-stack-1x fa-inverse"></i>
                             </span>
-                            <?php echo $customer ?> Times
+                            <?php echo $customer ?>
                         </div>
                     </div>
                 </div>

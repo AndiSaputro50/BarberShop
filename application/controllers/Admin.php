@@ -42,12 +42,12 @@ class Admin extends CI_Controller
     public function dashboard()
     {
         $data['customerr'] = $this->m_model->get_customer_by_status();
-        $data['jml_approve'] = $this->m_model->get_customer_by_status();
+        $data['jml_approve'] = $this->m_model->get_data('customer')->num_rows();
         $this->load->view('admin/dashboard', $data);
     }
     public function history_approve()
     {
-        $data['customerrs'] = $this->m_model->get_customer_by_status();
+        $data['customerrs'] = $this->m_model->get_data('customer')->result();
         $this->load->view('admin/history_approve', $data);
     }
 }

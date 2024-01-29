@@ -51,7 +51,7 @@ class M_model extends CI_Model
             c.status
         ');
         $this->db->from('customer c');
-        $this->db->where_in('c.status', ['PROCESS', 'APPOINTMENT']);
+        $this->db->where_in('c.status', ['PROCESS']);
         $this->db->group_by('c.id');
     
         $query = $this->db->get();
