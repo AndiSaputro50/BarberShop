@@ -1584,7 +1584,7 @@
                     <li class="header-top-item">
                         <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
 
-                        <p class="item-title">Opening Hour : Monday-Friday 08.00 - 16.00 </p>
+                        <p class="item-title">Opening Hour : Sun-Friday 08.00 AM - 09.00 PM </p>
 
                         <p class="item-text"></p>
                     </li>
@@ -1882,17 +1882,9 @@
                         </li>
 
                         <li class="footer-list-item">
-                            <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-                            
-                            <address class="contact-link">
-                                7528 Roberts Ave. Palm Bay, FL 32907
-                            </address>
-                        </li>
-
-                        <li class="footer-list-item">
                             <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
 
-                            <a href="tel:+0123456789" class="contact-link">+012 (345) 67 89</a>
+                            <a href="tel:+0123456789" class="contact-link">+62 641-191-997</a>
                         </li>
 
                         <li class="footer-list-item">
@@ -1904,7 +1896,7 @@
                         <li class="footer-list-item">
                             <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
 
-                            <a href="mailto:support@gmail.com" class="contact-link">support@gmail.com</a>
+                            <a href="mailto:support@gmail.com" class="contact-link">probarbershop@gmail.com</a>
                         </li>
 
                     </ul>
@@ -1915,7 +1907,7 @@
 
             <div class="footer-bottom">
                 <p class="copyright">
-                    &copy; 2022 <a href="#" class="copyright-link">codewithsadee</a>. All Rights Reserved.
+                    &copy; 2024 <a href="#" class="copyright-link">PRO Barbershop</a>. All Rights Reserved.
                 </p>
             </div>
 
